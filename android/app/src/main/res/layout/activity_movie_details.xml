@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="imageUrl"
+            type="String" />
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="releaseDate"
+            type="String" />
+        <variable
+            name="overview"
+            type="CharSequence" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#c0000000"
+        tools:context="com.samikb.assignment.ui.movie.MovieDetailsActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="34dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="34dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_action_arrow_back" />
+
+        <ImageView
+            android:id="@+id/poster_image_view"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_image_view"
+            app:glideSrc="@{imageUrl}"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="#cdcdcd"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@{title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster_image_view"
+            tools:text="Avengers: End Game"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/release_date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#cdcdcd"
+            android:textSize="12sp"
+            android:text="@{releaseDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+            tools:text="April 26, 2019 - 3h 1m"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/overview_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#cdcdcd"
+            android:layout_marginTop="20dp"
+            android:paddingStart="34dp"
+            android:paddingEnd="34dp"
+            android:text="@{overview}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_date_text_view" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/genre_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginEnd="34dp"
+            android:gravity="center_horizontal"
+            app:flexWrap="wrap"
+            app:layout_constraintTop_toBottomOf="@+id/overview_text_view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="custom_rating_bar">
+        <attr name="rating" format="integer" />
+    </declare-styleable>
+</resources>
