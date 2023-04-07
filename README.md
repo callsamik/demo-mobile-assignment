@@ -1,4 +1,4 @@
-# Mobile Assignment CS
+# Demo Mobile Assignment
 This is a README file with the details of the implementation of the assignment for Android native platform.
 
 ## Calling the configuration API
