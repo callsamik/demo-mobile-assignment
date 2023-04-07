@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="releaseDate"
+            type="String" />
+
+        <variable
+            name="duration"
+            type="String" />
+
+        <variable
+            name="rating"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="24dp" />
+
+        <com.samikb.assignment.ui.custom.CustomRatingBar
+            android:id="@+id/movie_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:rating = "@{rating}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/right_vertical_guideline"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/movie_poster_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="8dp"
+            app:glideSrc="@{imageUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/left_vertical_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_name_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{title}"
+            android:textColor="#cdcdcd"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/movie_poster_image_view"
+            app:layout_constraintEnd_toStartOf="@+id/movie_rating_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_release_date_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{releaseDate}"
+            android:textColor="#cdcdcd"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/movie_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/movie_name_text_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_duration_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="20dp"
+            android:text="@{duration}"
+            android:textColor="#cdcdcd"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/movie_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/movie_release_date_text_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
